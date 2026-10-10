@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --background: #fffdf8;
+  --foreground: #171717;
+  --muted: #6b6b6b;
+  --border: #e8e3d8;
+  --brand: #0f766e;
+  --brand-dark: #0b5f59;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Ticker-er content continuously left side-e move korbe.
+   Duplicate item list use korar karone animation sesh hole
+   abar naturally first item-er sathe continue korbe. */
+
+   @keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Mobile-e horizontal overflow prevent korar basic safeguards */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-wrap: break-word;
+}
+
+/* Ticker animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* User reduced motion prefer korle animation komano */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
