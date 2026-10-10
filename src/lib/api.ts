@@ -2,8 +2,9 @@ import type { Category } from "@/types/category";
 import type { Product } from "@/types/product";
 
 
-const BASE_URL = "https://api.api-store.workers.dev/api/bazardor";
+// const BASE_URL = "https://api.api-store.workers.dev/api/bazardor";
 
+const BASE_URL = "https://api.abcz.workers.dev/api/bazardor";
 
 export async function getProducts(): Promise<Product[]> {
   const response = await fetch(`${BASE_URL}/products`, {
