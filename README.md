@@ -157,7 +157,6 @@ The navigation includes a mobile hamburger menu, while product and category sect
 | `/signin` | User sign-in |
 | `/signup` | User registration |
 | `/api/auth/[...all]` | Better Auth API |
-| `/_not-found` | Custom not-found page |
 
 ## 📊 Product Information
 
