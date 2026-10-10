@@ -6,21 +6,37 @@ import type { Product } from "@/types/product";
 
 const BASE_URL = "https://api.abcz.workers.dev/api/bazardor";
 
+
 export async function getProducts(): Promise<Product[]> {
-  const response = await fetch(`${BASE_URL}/products`, {
+  const url = `${BASE_URL}/products`;
 
-    cache: "force-cache",
-  });
+  try {
+    const response = await fetch(url, {
+      cache: "no-store",
+    });
 
-  
-  if (!response.ok) {
-    throw new Error("Product data load korte problem hoyeche.");
+    if (!response.ok) {
+      const errorBody = await response.text();
+
+      console.error("Product API failed:", {
+        url,
+        status: response.status,
+        body: errorBody,
+      });
+
+      throw new Error(
+        `Product API failed with status ${response.status}`,
+      );
+    }
+
+    const data: Product[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("getProducts error:", error);
+    throw error;
   }
-
-  const data: Product[] = await response.json();
-
-  return data;
 }
+
 
 
 export async function getProductById(id: number): Promise<Product> {
