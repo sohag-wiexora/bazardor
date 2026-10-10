@@ -24,8 +24,7 @@ export default function Hero() {
             আজকের বাজারদর এবং বিভিন্ন বাজারের দামের তথ্য সহজে দেখুন।
           </p>
 
-          {/* Ei CTA same Home page-er "সব পণ্য" section-e niye jabe.
-              Tai ekhane kono alada route use korchi na. */}
+     
 
           <Link
             href="#সব-পণ্য"

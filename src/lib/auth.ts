@@ -12,7 +12,7 @@ export const auth = betterAuth({
 
   baseURL: process.env.BETTER_AUTH_URL,
 
-  // Google/GitHub OAuth account linking configuration.
+
   account: {
     accountLinking: {
       enabled: true,

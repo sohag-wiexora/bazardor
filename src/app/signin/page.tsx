@@ -13,7 +13,6 @@ export default function SigninPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Form submit hole Better Auth diye user login korbe.
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -26,17 +25,17 @@ export default function SigninPage() {
         password,
       });
 
-      // Login fail hole error message dekhabo.
       if (result.error) {
-        setError(result.error.message || "Signin failed. Please try again.");
+        setError(
+          result.error.message || "সাইন ইন করা যায়নি। আবার চেষ্টা করুন।"
+        );
         return;
       }
 
-      // Login successful hole home page-e jabe.
       router.push("/");
       router.refresh();
     } catch {
-      setError("Something went wrong. Please try again.");
+      setError("কিছু সমস্যা হয়েছে। আবার চেষ্টা করুন।");
     } finally {
       setLoading(false);
     }
@@ -47,11 +46,11 @@ export default function SigninPage() {
       <section className="w-full max-w-md rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome Back
+            আবার স্বাগতম
           </h1>
 
           <p className="mt-2 text-sm text-gray-600">
-            Sign in to your BazarDor account
+            আপনার বাজার দর অ্যাকাউন্টে সাইন ইন করুন
           </p>
         </div>
 
@@ -61,14 +60,14 @@ export default function SigninPage() {
               htmlFor="email"
               className="mb-2 block text-sm font-medium text-gray-700"
             >
-              Email Address
+              ইমেইল ঠিকানা
             </label>
 
             <input
               id="email"
               type="email"
               autoComplete="email"
-              placeholder="Enter your email"
+              placeholder="আপনার ইমেইল লিখুন"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -81,14 +80,14 @@ export default function SigninPage() {
               htmlFor="password"
               className="mb-2 block text-sm font-medium text-gray-700"
             >
-              Password
+              পাসওয়ার্ড
             </label>
 
             <input
               id="password"
               type="password"
               autoComplete="current-password"
-              placeholder="Enter your password"
+              placeholder="আপনার পাসওয়ার্ড লিখুন"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -110,7 +109,7 @@ export default function SigninPage() {
             disabled={loading}
             className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? "সাইন ইন হচ্ছে..." : "সাইন ইন"}
           </button>
         </form>
 
@@ -137,7 +136,7 @@ export default function SigninPage() {
           <span className="text-lg" aria-hidden="true">
             G
           </span>
-          Continue with Google
+          Google দিয়ে সাইন ইন করুন
         </button>
 
         <button
@@ -153,16 +152,16 @@ export default function SigninPage() {
           <span className="text-lg" aria-hidden="true">
             GitHub
           </span>
-          Continue with GitHub
+          GitHub দিয়ে সাইন ইন করুন
         </button>
 
         <p className="mt-6 text-center text-sm text-gray-600">
-          Don&apos;t have an account?{" "}
+          আপনার কি এখনো কোনো অ্যাকাউন্ট নেই?{" "}
           <Link
             href="/signup"
             className="font-semibold text-blue-600 hover:underline"
           >
-            Create account
+            অ্যাকাউন্ট তৈরি করুন
           </Link>
         </p>
       </section>

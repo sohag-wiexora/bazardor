@@ -1,9 +1,10 @@
 export default function Loading() {
-  // API data load howar somoy user-ke blank screen na dekhiye
-  // ei skeleton layout-ta dekhabo.
+
   return (
     <main className="min-h-screen bg-[#fffdf8]">
+     
       {/* Navbar skeleton */}
+
       <div className="border-b border-[#e8e3d8] bg-[#fffdf8]">
         <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6">
           <div className="flex items-center justify-between">
@@ -19,6 +20,7 @@ export default function Loading() {
           </div>
 
           {/* Category navigation skeleton */}
+
           <div className="mt-5 flex gap-2 overflow-hidden">
             {Array.from({ length: 7 }).map((_, index) => (
               <div
@@ -31,6 +33,7 @@ export default function Loading() {
       </div>
 
       {/* Hero skeleton */}
+
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-16">
         <div className="space-y-5">
           <div className="h-4 w-36 animate-pulse rounded bg-[#e8e3d8]" />
@@ -44,6 +47,7 @@ export default function Loading() {
       </section>
 
       {/* Product cards skeleton */}
+
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="mb-7 space-y-3">
           <div className="h-8 w-56 animate-pulse rounded bg-[#e8e3d8]" />

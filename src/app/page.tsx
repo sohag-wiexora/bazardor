@@ -6,20 +6,16 @@ import { getProducts } from "@/lib/api";
 import Footer from "@/components/layout/Footer";
 
 export default async function Home() {
-  // Home page-er main product data ekbar fetch korchi.
-  // Ei same data theke riser, faller ebong all products section
-  // dynamically তৈরি হবে.
+
   const products = await getProducts();
 
-  // Jader price up, tader moddhe highest percentage change
-  // age rekhe top 6 riser ber korchi.
+
   const risers = products
     .filter((product) => product.change.dir === "up")
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
 
-  // Jader price down, tader moddhe highest percentage fall
-  // age rekhe top 6 faller ber korchi.
+
   const fallers = products
     .filter((product) => product.change.dir === "down")
     .sort((a, b) => b.change.pct - a.change.pct)
@@ -35,6 +31,7 @@ export default async function Home() {
         <Hero />
 
         {/* Section A — Top 6 products whose price increased today */}
+
         <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
           <div className="mb-7">
             <h2 className="text-2xl font-bold sm:text-3xl">
@@ -54,6 +51,7 @@ export default async function Home() {
         </section>
 
         {/* Section B — Top 6 products whose price decreased today */}
+
         <section className="border-y border-[#e8e3d8] bg-[#faf7f0]">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
             <div className="mb-7">
@@ -75,6 +73,7 @@ export default async function Home() {
         </section>
 
         {/* Section C — Every product returned by the API */}
+        
         <section
           id="সব-পণ্য"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"

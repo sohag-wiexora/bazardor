@@ -15,7 +15,7 @@ function formatPrice(value: number) {
 }
 
 function getUnitLabel(unit: string) {
-  // API theke asa short unit-ke user-friendly Bangla label-e convert korchi.
+
   const units: Record<string, string> = {
     kg: "কেজি",
     liter: "লিটার",
@@ -33,10 +33,10 @@ export default async function ProductDetailsContent({
 }: ProductDetailsContentProps) {
   const { slug } = await params;
 
-  // URL-er slug diye exact product-ta API data theke ber korchi.
+  
   const product = await getProductBySlug(slug);
 
-  // Invalid slug hole amader global 404 page-e pathiye dibo.
+ 
   if (!product) {
     notFound();
   }
@@ -52,10 +52,6 @@ export default async function ProductDetailsContent({
 
   const changeIcon = isUp ? "▲" : isDown ? "▼" : "—";
 
-  /*
-   * Shob market-er minimum price theke overall minimum
-   * ebong shob maximum price theke overall maximum ber korchi.
-   */
   const minimumPrice = Math.min(
     ...product.markets.map((market) => market.min),
   );
@@ -64,10 +60,7 @@ export default async function ProductDetailsContent({
     ...product.markets.map((market) => market.max),
   );
 
-  /*
-   * Market-er min/max-er average diye overall market average
-   * calculate korchi.
-   */
+
   const averagePrice =
     product.markets.reduce(
       (total, market) => total + (market.min + market.max) / 2,
@@ -79,6 +72,7 @@ export default async function ProductDetailsContent({
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
 
         {/* Back button */}
+
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm font-bold text-[#0f766e] transition hover:gap-3"
@@ -87,10 +81,12 @@ export default async function ProductDetailsContent({
         </Link>
 
         {/* Product summary */}
+
         <section className="mt-6 overflow-hidden rounded-3xl border border-[#e8e3d8] bg-white shadow-sm">
           <div className="grid gap-8 p-5 sm:p-8 lg:grid-cols-[280px_1fr] lg:p-10">
 
             {/* Product illustration */}
+
             <div className="flex min-h-64 items-center justify-center rounded-2xl bg-[#f7f3ea]">
               <span
                 className="text-8xl"
@@ -101,6 +97,7 @@ export default async function ProductDetailsContent({
             </div>
 
             {/* Product information */}
+
             <div className="flex flex-col justify-center">
 
               {/* Category + unit */}
@@ -124,6 +121,7 @@ export default async function ProductDetailsContent({
               </p>
 
               {/* Today's price */}
+
               <div className="mt-7 flex flex-wrap items-end gap-5">
 
                 <div>
@@ -141,6 +139,7 @@ export default async function ProductDetailsContent({
                 </div>
 
                 {/* Change badge */}
+
                 <span
                   className={`rounded-full px-4 py-2 text-sm font-bold ${changeColor}`}
                 >
@@ -154,6 +153,7 @@ export default async function ProductDetailsContent({
               </div>
 
               {/* Historical price information */}
+
               <div className="mt-7 grid max-w-xl grid-cols-3 gap-3">
 
                 <div className="rounded-xl bg-[#faf8f3] p-3">
@@ -183,6 +183,7 @@ export default async function ProductDetailsContent({
         </section>
 
         {/* Price summary */}
+
         <section className="mt-8">
           <div className="mb-5">
             <p className="text-sm font-bold text-[#0f766e]">
@@ -299,6 +300,7 @@ export default async function ProductDetailsContent({
             </div>
 
             {/* Mobile view */}
+
             <div className="divide-y divide-[#eee9df] md:hidden">
               {product.markets.map((market) => (
                 <article
@@ -353,6 +355,7 @@ export default async function ProductDetailsContent({
         </section>
 
         {/* Disclaimer */}
+
         <p className="mt-7 pb-4 text-center text-xs leading-5 text-[#8a857d]">
           সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে
           পরিবর্তিত হতে পারে।

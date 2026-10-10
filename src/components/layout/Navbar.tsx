@@ -12,7 +12,7 @@ export default function Navbar() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // API theke category load kori.
+
   useEffect(() => {
     getCategories()
       .then(setCategories)
@@ -24,7 +24,9 @@ export default function Navbar() {
   return (
     <header className="relative z-50 w-full border-b border-[#e8e3d8] bg-[#fffdf8]">
       <div className="mx-auto w-full max-w-6xl px-3 sm:px-6">
-        {/* Logo, date and mobile hamburger */}
+       
+       {/* Logo, date and mobile hamburger */}
+
         <div className="flex min-h-16 items-center justify-between gap-3 py-3">
           <Link
             href="/"
@@ -44,11 +46,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop authentication buttons */}
+
           <div className="hidden sm:block">
             <AuthActions />
           </div>
 
           {/* Three-line hamburger button: mobile only */}
+
           <button
             type="button"
             aria-label={menuOpen ? "মেনু বন্ধ করুন" : "মেনু খুলুন"}
@@ -76,6 +80,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile dropdown menu */}
+
         {menuOpen && (
           <div
             id="mobile-navigation"
@@ -115,6 +120,7 @@ export default function Navbar() {
         )}
 
         {/* Desktop category navigation */}
+
         <nav
           aria-label="পণ্যের ক্যাটাগরি"
           className="hidden overflow-x-auto border-t border-[#eee9df] sm:block"

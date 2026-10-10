@@ -1,7 +1,3 @@
-//Akhane API theke product-er data exactly ei structure-e ashe.
-// Type define kore rakhle pore component bananor somoy TypeScript
-// Ar amader wrong property name ba wrong data type use kora theke bachabe.
-
 export type ProductChange = {
   dir: "up" | "down" | "flat";
   pct: number;

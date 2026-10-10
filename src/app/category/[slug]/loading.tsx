@@ -2,7 +2,9 @@ export default function Loading() {
   return (
     <main className="min-h-screen bg-[#fffdf8] px-4 py-10">
       <div className="mx-auto max-w-6xl">
+        
         {/* Next.js route loading-er somoy ei skeleton dekhabe. */}
+        
         <div className="h-10 w-64 animate-pulse rounded bg-[#e8e3d8]" />
 
         <div className="mt-3 h-5 w-96 max-w-full animate-pulse rounded bg-[#eee9df]" />

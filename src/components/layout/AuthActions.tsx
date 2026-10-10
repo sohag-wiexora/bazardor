@@ -19,6 +19,7 @@ export default function AuthActions() {
   }
 
   // Session load howar somoy layout jeno jump na kore.
+  
   if (isPending) {
     return (
       <div
@@ -29,6 +30,7 @@ export default function AuthActions() {
   }
 
   // Logged-in user-er jonno sign out button.
+
   if (session) {
     return (
       <div className="flex w-full min-w-0 items-center justify-end gap-2 sm:w-auto sm:gap-3">
@@ -48,6 +50,7 @@ export default function AuthActions() {
   }
 
   // Logged-out user-er jonno sign in ebong sign up links.
+
   return (
     <div className="flex w-full min-w-0 items-center gap-2 sm:w-auto sm:gap-3">
       <Link

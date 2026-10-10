@@ -1,36 +1,315 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Bazar Dor
 
-## Getting Started
+**Bazar Dor** is a responsive grocery price tracking web application built for monitoring daily market prices of essential grocery products in Bangladesh.
 
-First, run the development server:
+Users can browse products, filter products by category, view price changes, check detailed market information, and securely access the application through email/password or social authentication.
+
+## 🔗 Project Links
+
+- **Live Website:** Add your Vercel deployment URL here
+- **GitHub Repository:** https://github.com/sohag-wiexora/bazardor
+
+## ✨ Features
+
+- 📊 View current grocery market prices
+- 📈 Identify products with rising and falling prices
+- 🛍️ Browse all grocery products
+- 🗂️ Browse products by category
+- 🔎 View detailed product information
+- 💰 View minimum, maximum, average, and market prices
+- 📱 Fully responsive design for desktop, tablet, and mobile
+- 🔐 Secure authentication with email and password
+- 🔵 Google OAuth authentication
+- ⚫ GitHub OAuth authentication
+- 👤 User session and sign-out support
+- 🇧🇩 Bengali interface and Bengali market information
+- ⏳ Loading and skeleton states
+- ❌ Error and empty states
+- 🚫 Custom not-found page
+- 🔄 Refresh-safe Next.js routing
+- 📅 Bengali date display
+- 📰 Scrolling market price ticker
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+- Next.js 16
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+
+### Backend & Authentication
+
+- Better Auth
+- MongoDB
+- MongoDB Adapter
+- Google OAuth
+- GitHub OAuth
+
+### API
+
+The application uses the Bazar Dor API to retrieve product and category information.
+
+```text
+https://api.api-store.workers.dev/api/bazardor
+```
+
+Available API resources include:
+
+```text
+/products
+/products?category=chal
+/products/:id
+/categories
+/categories/:slug
+```
+
+## 📂 Project Structure
+
+```text
+bazardor/
+├── public/
+│   ├── bazar-hero.png
+│   └── logo-icon.png
+│
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── auth/
+│   │   │       └── [...all]/
+│   │   │           └── route.ts
+│   │   │
+│   │   ├── category/
+│   │   │   └── [slug]/
+│   │   │       ├── CategoryProducts.tsx
+│   │   │       ├── loading.tsx
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── product/
+│   │   │   └── [slug]/
+│   │   │       ├── ProductDetailsContent.tsx
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── signin/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── signup/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   ├── not-found.tsx
+│   │   └── page.tsx
+│   │
+│   ├── components/
+│   │   ├── home/
+│   │   │   └── Hero.tsx
+│   │   │
+│   │   ├── layout/
+│   │   │   ├── AuthActions.tsx
+│   │   │   ├── BanglaDate.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── PriceTicker.tsx
+│   │   │
+│   │   └── product/
+│   │       └── ProductCard.tsx
+│   │
+│   ├── db.ts
+│   ├── lib/
+│   │   ├── api.ts
+│   │   ├── auth-client.ts
+│   │   └── auth.ts
+│   │
+│   └── types/
+│
+├── .env
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+## 🔐 Authentication
+
+Bazar Dor uses Better Auth for authentication.
+
+Supported authentication methods:
+
+- Email and password
+- Google
+- GitHub
+
+Users can:
+
+- Create an account
+- Sign in
+- Sign in with Google
+- Sign in with GitHub
+- Sign out
+- Maintain an authenticated session
+
+Authentication is connected with MongoDB through the Better Auth MongoDB adapter.
+
+
+BETTER_AUTH_URL=https://your-vercel-domain.vercel.app
+```
+
+Never commit your `.env` or `.env.local` file to GitHub.
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/sohag-wiexora/bazardor.git
+```
+
+### 2. Go to the project directory
+
+```bash
+cd bazardor
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure environment variables
+
+Create `.env.local` and add the required environment variables.
+
+### 5. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧪 Available Scripts
 
-## Learn More
+### Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Production Build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+### Lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Responsive Design
+
+The application is designed to work across:
+
+- Mobile devices
+- Tablets
+- Laptops
+- Desktop screens
+
+The navigation includes a mobile hamburger menu, while product and category sections adapt to smaller screen sizes.
+
+## 🧭 Main Routes
+
+| Route | Description |
+|---|---|
+| `/` | Home page with market overview and products |
+| `/category/[slug]` | Category-specific products |
+| `/product/[slug]` | Detailed product information |
+| `/signin` | User sign-in |
+| `/signup` | User registration |
+| `/api/auth/[...all]` | Better Auth API |
+| `/_not-found` | Custom not-found page |
+
+## 📊 Product Information
+
+Each product can display information such as:
+
+- Product name
+- Bengali product name
+- Category
+- Unit
+- Current price
+- Previous price
+- Price change
+- Market information
+- Minimum price
+- Maximum price
+- Average price
+
+The home page also highlights products based on price movement.
+
+## 🎨 UI & UX
+
+The interface focuses on:
+
+- Clean grocery-market visual design
+- Bengali-first user experience
+- Responsive navigation
+- Clear price presentation
+- Accessible buttons and forms
+- Loading states
+- Empty states
+- Error handling
+- Mobile-friendly authentication pages
+
+## 🔒 Security
+
+Security-related implementation includes:
+
+- Better Auth session management
+- Password-based authentication
+- OAuth authentication
+- MongoDB-backed authentication data
+- Environment-based secret management
+- Protected authenticated functionality
+
+Sensitive credentials are stored in environment variables and are not included in the repository.
+
+## 📈 Future Improvements
+
+Possible future improvements include:
+
+- User profile management
+- Favorite products
+- Price history charts
+- Market price notifications
+- Advanced product search
+- Price comparison between markets
+- Admin dashboard
+- Product management system
+- More detailed market analytics
+
+## 👨‍💻 Developer
+
+**Md Sohag Chowdhuri**
+
+- GitHub: https://github.com/sohag-wiexora
+- Project: Bazar Dor
+
+## 📄 Assignment
+
+This project was developed as part of the **B14-A7-Bazar Dor** assignment.
+
+The application focuses on building a production-style grocery price tracking platform using modern Next.js development practices, API integration, responsive UI, authentication, and MongoDB.
+
+## 📜 License
+
+This project is created for educational and portfolio purposes.

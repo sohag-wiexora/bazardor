@@ -22,6 +22,7 @@ export default function CategoryProducts({
 
   // User je sort option select korbe,
   // tar upor base kore product list arrange korchi.
+  
   const sortedProducts = useMemo(() => {
     const productList = [...products];
 
@@ -39,7 +40,9 @@ export default function CategoryProducts({
   return (
     <main className="min-h-screen bg-[#fffdf8] px-4 py-10">
       <div className="mx-auto max-w-6xl">
+        
         {/* Category heading */}
+
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="text-4xl" aria-hidden="true">
@@ -56,6 +59,7 @@ export default function CategoryProducts({
           </div>
 
           {/* Price sorting */}
+
           <div className="flex items-center gap-3">
             <label
               htmlFor="price-sort"
@@ -80,6 +84,7 @@ export default function CategoryProducts({
         </div>
 
         {/* Product list */}
+
         {sortedProducts.length > 0 ? (
           <section className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {sortedProducts.map((product) => (

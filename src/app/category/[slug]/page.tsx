@@ -33,17 +33,17 @@ function CategoryPageSkeleton() {
 async function CategoryPageContent({
   params,
 }: CategoryPageProps) {
-  // Dynamic route-er slug ta Suspense boundary-r vitore resolve korchi.
+ 
   const { slug } = await params;
 
   const categories = await getCategories();
 
-  // URL-er slug-er sathe matching category khujchi.
+
   const category = categories.find(
     (item) => item.slug === slug,
   );
 
-  // Category valid na hole Next.js-er 404 page dekhabe.
+  
   if (!category) {
     notFound();
   }
