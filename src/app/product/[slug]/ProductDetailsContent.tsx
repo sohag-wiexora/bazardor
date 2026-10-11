@@ -10,7 +10,9 @@ type ProductDetailsContentProps = {
 };
 
 function formatPrice(value: number) {
-  // Price-ke Bangla digit-e dekhacchi jeno UI-ta requirement-er sathe match kore.
+  
+  // Akhane Ami Price-ke Bangla digit-e dekhacchi jeno UI-ta requirement-er sathe match kore.
+
   return value.toLocaleString("bn-BD");
 }
 
@@ -101,6 +103,7 @@ export default async function ProductDetailsContent({
             <div className="flex flex-col justify-center">
 
               {/* Category + unit */}
+
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-[#f5efe3] px-3 py-1.5 text-sm font-semibold text-[#625a4d]">
                   {product.categoryIcon} {product.categoryNameBn}
@@ -231,6 +234,7 @@ export default async function ProductDetailsContent({
         </section>
 
         {/* Market-wise price */}
+
         <section className="mt-10">
 
           <div className="mb-5">
@@ -250,6 +254,7 @@ export default async function ProductDetailsContent({
           <div className="overflow-hidden rounded-2xl border border-[#e8e3d8] bg-white shadow-sm">
 
             {/* Desktop/tablet view */}
+            
             <div className="hidden overflow-x-auto md:block">
               <table className="w-full min-w-[650px]">
                 <thead className="bg-[#f7f3ea]">

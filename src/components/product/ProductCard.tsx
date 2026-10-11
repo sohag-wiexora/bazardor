@@ -21,8 +21,8 @@ export default function ProductCard({ product }: ProductCardProps) {
       href={`/product/${product.slug}`}
       className="group block rounded-xl border border-[#e8e3d8] bg-white p-4 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md"
     >
-      {/* Product-er visual area.
-          API-te image currently emoji hisebe ashe, tai img tag use korchi na. */}
+      {/*Ata holo Product-er visual area.
+         Akhane Ami API-te image currently emoji hisebe ashe, tai img tag use korchi na. */}
 
       <div className="flex h-32 items-center justify-center rounded-lg bg-[#f7f3ea]">
         <span

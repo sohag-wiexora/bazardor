@@ -1,235 +1,217 @@
-# 🛒 Bazar Dor
+# 🛒 বাজার দর | BazarDor
 
-**Bazar Dor** is a responsive grocery price tracking web application built for monitoring daily market prices of essential grocery products in Bangladesh.
+### প্রয়োজনীয় পণ্যের দাম এক নজরে
 
-Users can browse products, filter products by category, view price changes, check detailed market information, and securely access the application through email/password or social authentication.
+**BazarDor** is a responsive Bengali market-price web application that helps users explore daily essential product prices, compare price changes, browse categories, and view market-wise price summaries.
 
-## 🔗 Project Links
+---
 
-- **Live Website:** Add your Vercel deployment URL here
-- **GitHub Repository:** https://github.com/sohag-wiexora/bazardor
+## ✨ Key Features
 
-## ✨ Features
+- 📱 **Fully Responsive Design** — Optimized for mobile, tablet, and desktop devices.
+- 📈 **Live Price Ticker** — Displays product names, prices, units, and daily price changes in a continuously scrolling strip.
+- 🔺 **Rising & Falling Prices** — Highlights the top products with increased and decreased prices.
+- 🛍️ **Product Catalogue** — Displays product cards with Bengali names, illustrations, units, prices, and percentage changes.
+- 🔎 **Product Details** — Provides price summaries, including minimum, maximum, average, and market-wise prices.
+- 🗂️ **Category Browsing** — Browse products by category with sorting options.
+- ↕️ **Price Sorting** — Sort products by default order, lowest price, or highest price using numeric values.
+- 🔐 **Authentication** — Email/password registration and login, Google sign-in, and GitHub sign-in with Better Auth.
+- 👤 **Profile Management** — Update user information through a dedicated profile update flow.
+- 🔔 **Toast Notifications** — Displays relevant success, error, and authentication feedback.
+- 💀 **Skeleton Loading** — Shows loading placeholders while product data is being fetched.
+- 🚫 **Friendly 404 Pages** — Provides a helpful message and a link back to the home page for unknown routes.
+- 🔒 **Protected Product Details** — Requires authentication to access product detail pages.
+- 🚀 **Deployment Ready** — Supports deployment to platforms such as Vercel.
 
-- 📊 View current grocery market prices
-- 📈 Identify products with rising and falling prices
-- 🛍️ Browse all grocery products
-- 🗂️ Browse products by category
-- 🔎 View detailed product information
-- 💰 View minimum, maximum, average, and market prices
-- 📱 Fully responsive design for desktop, tablet, and mobile
-- 🔐 Secure authentication with email and password
-- 🔵 Google OAuth authentication
-- ⚫ GitHub OAuth authentication
-- 👤 User session and sign-out support
-- 🇧🇩 Bengali interface and Bengali market information
-- ⏳ Loading and skeleton states
-- ❌ Error and empty states
-- 🔄 Refresh-safe Next.js routing
-- 📅 Bengali date display
-- 📰 Scrolling market price ticker
+## 🧰 Technology Stack
 
-## 🛠️ Technologies Used
+| Technology | Purpose |
+|---|---|
+| Next.js App Router | Application framework and routing |
+| React | User interface components |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Responsive styling |
+| daisyUI | UI components and theme utilities |
+| Better Auth | Authentication and social login |
+| MongoDB | Authentication data storage |
+| React Hot Toast | User notifications |
+| BazarDor API | Product, category, and price data |
+| Git & GitHub | Version control and source code hosting |
+| Vercel | Application deployment |
 
-### Frontend
+## 🔌 API Reference
 
-- Next.js 16
-- React
-- TypeScript
-- Tailwind CSS
-- DaisyUI
+### Primary API
 
-### Backend & Authentication
+`https://openapi.programming-hero.com/api/bazardor`
 
-- Better Auth
-- MongoDB
-- MongoDB Adapter
-- Google OAuth
-- GitHub OAuth
+### Alternative APIs
 
-### API
+- `https://api.api-store.workers.dev/api/bazardor`
+- `https://api.abcz.workers.dev/api/bazardor`
 
-The application uses the Bazar Dor API to retrieve product and category information.
+### Available Endpoints
 
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/products` | Retrieve all products |
+| GET | `/products?category=chal` | Filter products by category |
+| GET | `/products/1` | Retrieve a single product |
+| GET | `/categories` | Retrieve all categories |
+| GET | `/categories/chal` | Retrieve a single category |
 
+## 📂 Main Application Routes
 
-## 🔐 Authentication
+| Route | Description |
+|---|---|
+| `/` | Home page and product catalogue |
+| `/category/[slug]` | Category-specific product listing |
+| `/product/[slug]` | Protected product details |
+| `/signin` | User login |
+| `/signup` | User registration |
+| `/profile` | User profile |
+| Profile update route | Update user information |
+| `404` | Friendly not-found page |
 
-Bazar Dor uses Better Auth for authentication.
-
-Supported authentication methods:
-
-- Email and password
-- Google
-- GitHub
-
-Users can:
-
-- Create an account
-- Sign in
-- Sign in with Google
-- Sign in with GitHub
-- Sign out
-- Maintain an authenticated session
-
-Authentication is connected with MongoDB through the Better Auth MongoDB adapter.
-
-
-BETTER_AUTH_URL=https://your-vercel-domain.vercel.app
-```
-
-Never commit your `.env` or `.env.local` file to GitHub.
+*The profile routes above describe the intended application structure; adjust them if your implementation uses different paths.*
 
 ## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js and npm
+- Git
+- MongoDB connection string
+- Google OAuth credentials
+- GitHub OAuth credentials
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/sohag-wiexora/bazardor.git
-```
-
-### 2. Go to the project directory
-
-```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
 cd bazardor
 ```
 
-### 3. Install dependencies
+(https://github.com/sohag-wiexora/bazardor.git)
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Configure environment variables
+### 3. Configure environment variables
 
-Create `.env.local` and add the required environment variables.
+Create a `.env.local` file in the project root and configure the variables required by your application.
 
-### 5. Start the development server
 
-```bash
-npm run dev
-```
 
-Open:
 
-```text
-http://localhost:3000
-```
 
-## 🧪 Available Scripts
-
-### Development
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-### Production Build
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```bash
-npm run build
-```
-
-### Lint
+### 5. Run quality checks
 
 ```bash
 npm run lint
+npm run build
 ```
+
+On Windows PowerShell, if the npm script execution policy causes issues, use:
+
+```powershell
+npm.cmd run lint
+npm.cmd run build
+```
+
+## 🔐 Authentication Configuration
+
+BazarDor uses Better Auth for email/password authentication and Google/GitHub social login.
+
+Before deploying:
+
+1. Configure the correct `BETTER_AUTH_URL` for the environment.
+2. Register the appropriate callback URLs with Google and GitHub.
+3. Ensure the deployed domain is trusted by Better Auth.
+4. Configure all required environment variables on the hosting platform.
+5. Test registration, login, social authentication, logout, and protected routes.
+
+Typical callback URL patterns:
+
+**Google**
+
+`https://YOUR_DOMAIN/api/auth/callback/google`
+
+**GitHub**
+
+`https://YOUR_DOMAIN/api/auth/callback/github`
+
+Replace `YOUR_DOMAIN` with your actual domain and verify the callback paths against your Better Auth configuration.
+
+Email verification and password reset are intentionally excluded from this assignment's required authentication flow.
+
+## 🌐 Deployment
+
+This project can be deployed on Vercel or another platform compatible with its Next.js configuration.
+
+1. Push the latest code to GitHub.
+2. Import the repository into the hosting platform.
+3. Add the required environment variables.
+4. Configure production OAuth callback URLs.
+5. Deploy the application.
+6. Test the home page, authentication, category pages, protected product details, and direct route refreshes.
 
 ## 📱 Responsive Design
 
-The application is designed to work across:
+The interface is designed to provide a consistent experience across:
 
-- Mobile devices
-- Tablets
-- Laptops
-- Desktop screens
+- **Mobile:** Compact navigation, stacked hero section, and a responsive product grid.
+- **Tablet:** Flexible layouts and multi-column product cards.
+- **Desktop:** Full navigation and a wider product catalogue.
 
-The navigation includes a mobile hamburger menu, while product and category sections adapt to smaller screen sizes.
+## 🧪 Final Testing Checklist
 
-## 🧭 Main Routes
+- [ ] Product data loads successfully from the API.
+- [ ] Price ticker scrolls continuously.
+- [ ] Rising and falling price sections display correctly.
+- [ ] Product cards navigate to the correct detail pages.
+- [ ] Product details are protected by authentication.
+- [ ] Category filtering and price sorting work correctly.
+- [ ] Bengali numerals display correctly and prices sort numerically.
+- [ ] Email/password registration and login work.
+- [ ] Google and GitHub sign-in work.
+- [ ] Logout displays the correct feedback.
+- [ ] Profile information can be updated.
+- [ ] Loading skeletons and error states work correctly.
+- [ ] Invalid routes show a friendly 404 page.
+- [ ] Dynamic routes work when refreshed after deployment.
+- [ ] The UI works on mobile, tablet, and desktop.
+- [ ] `npm run lint` passes.
+- [ ] `npm run build` passes.
+- [ ] At least eight meaningful Git commits are present.
+- [ ] No secrets are committed to the repository.
 
-| Route | Description |
-|---|---|
-| `/` | Home page with market overview and products |
-| `/category/[slug]` | Category-specific products |
-| `/product/[slug]` | Detailed product information |
-| `/signin` | User sign-in |
-| `/signup` | User registration |
-| `/api/auth/[...all]` | Better Auth API |
+## 📬 Submission Links
 
-## 📊 Product Information
+- **Live Link:** `https://bazardor-o9va.vercel.app`
+- **GitHub Repository:** `https://github.com/sohag-wiexora/bazardor.git`
 
-Each product can display information such as:
+## ⚠️ Disclaimer
 
-- Product name
-- Bengali product name
-- Category
-- Unit
-- Current price
-- Previous price
-- Price change
-- Market information
-- Minimum price
-- Maximum price
-- Average price
+BazarDor is an educational assignment project. Displayed prices are indicative and may vary depending on market conditions, location, time, and API availability. Please verify prices with the relevant market or seller.
 
-The home page also highlights products based on price movement.
+---
 
-## 🎨 UI & UX
+<div align="center">
 
-The interface focuses on:
+**বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।**
 
-- Clean grocery-market visual design
-- Bengali-first user experience
-- Responsive navigation
-- Clear price presentation
-- Accessible buttons and forms
-- Loading states
-- Empty states
-- Error handling
-- Mobile-friendly authentication pages
+Built for **B14-A7 — Bazar Dor**.
 
-## 🔒 Security
-
-Security-related implementation includes:
-
-- Better Auth session management
-- Password-based authentication
-- OAuth authentication
-- MongoDB-backed authentication data
-- Environment-based secret management
-- Protected authenticated functionality
-
-Sensitive credentials are stored in environment variables and are not included in the repository.
-
-## 📈 Future Improvements
-
-Possible future improvements include:
-
-- User profile management
-- Favorite products
-- Price history charts
-- Market price notifications
-- Advanced product search
-- Price comparison between markets
-- Admin dashboard
-- Product management system
-- More detailed market analytics
-
-## 👨‍💻 Developer
-
-**Md Sohag Chowdhuri**
-
-- GitHub: https://github.com/sohag-wiexora
-- Project: Bazar Dor
-
-## 📄 Assignment
-
-This project was developed as part of the **B14-A7-Bazar Dor** assignment.
-
-The application focuses on building a production-style grocery price tracking platform using modern Next.js development practices, API integration, responsive UI, authentication, and MongoDB.
-
-## 📜 License
-
-This project is created for educational and portfolio purposes.
+</div>

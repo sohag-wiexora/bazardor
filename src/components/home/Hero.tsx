@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="border-b border-[#e8e3d8] bg-[#fffdf8]">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-20">
        
-        {/* Left side-e Bazar Dor-er main message ebong CTA rakhlam.
+        {/* Akhane Ami Left side-e Bazar Dor-er main message ebong CTA rakhlam.
             User prothome website-er purpose bujhbe, tarpor product section-e jete parbe. */}
         
         <div>
@@ -34,7 +34,7 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Right side-e assignment-er provided hero image use korchi.
+        {/* Akhane Ami Right side-e assignment-er provided hero image use korchi.
             Next Image use korle image optimized ebong responsive thakbe. */}
 
         <div className="flex min-h-72 items-center justify-center sm:min-h-96">

@@ -19,7 +19,7 @@ export default function BanglaDate() {
       setToday(currentDate);
     }, 0);
 
-    // Component unmount hole pending timer-ta clean kore dicchi.
+
     return () => clearTimeout(timer);
   }, []);
 

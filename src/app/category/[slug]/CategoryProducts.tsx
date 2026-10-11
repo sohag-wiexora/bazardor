@@ -20,7 +20,7 @@ export default function CategoryProducts({
 }: CategoryProductsProps) {
   const [sort, setSort] = useState<SortOption>("default");
 
-  // User je sort option select korbe,
+  // Akhane User je sort option select korbe,
   // tar upor base kore product list arrange korchi.
   
   const sortedProducts = useMemo(() => {

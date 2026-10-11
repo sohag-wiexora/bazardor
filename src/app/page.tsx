@@ -8,7 +8,7 @@ import { getProducts } from "@/lib/api";
 import Footer from "@/components/layout/Footer";
 import type { Product } from "@/types/product";
 
-// API theke product ene homepage-er sections-e dekhabe.
+// Akhane A API theke product ene homepage-er sections-e dekhabe.
 async function HomeContent() {
    await connection();
 
@@ -16,17 +16,17 @@ async function HomeContent() {
   try {
     products = await getProducts();
   } catch (error) {
-    // API fail korleo error log hobe; homepage crash korbe na.
+   
     console.error("Homepage product loading failed:", error);
   }
 
-  // Je products-er dam bereche, tader moddhe top 6 ber kori.
+
   const risers = products
     .filter((product) => product.change.dir === "up")
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
 
-  // Je products-er dam komeche, tader moddhe top 6 ber kori.
+ 
   const fallers = products
     .filter((product) => product.change.dir === "down")
     .sort((a, b) => b.change.pct - a.change.pct)
@@ -42,6 +42,7 @@ async function HomeContent() {
         <Hero />
 
         {/* Section A — Top 6 products whose price increased today */}
+
         <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
           <div className="mb-7">
             <h2 className="text-2xl font-bold sm:text-3xl">
@@ -61,6 +62,7 @@ async function HomeContent() {
         </section>
 
         {/* Section B — Top 6 products whose price decreased today */}
+
         <section className="border-y border-[#e8e3d8] bg-[#faf7f0]">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
             <div className="mb-7">
@@ -82,6 +84,7 @@ async function HomeContent() {
         </section>
 
         {/* Section C — Every product returned by the API */}
+
         <section
           id="সব-পণ্য"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
@@ -108,7 +111,7 @@ async function HomeContent() {
   );
 }
 
-// Suspense boundary async homepage content-er loading state handle kore.
+
 export default function Home() {
   return (
     <Suspense

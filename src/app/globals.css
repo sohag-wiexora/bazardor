@@ -36,7 +36,7 @@ a {
   text-decoration: none;
 }
 
-/* Ticker-er content continuously left side-e move korbe.
+/* Akhane Ticker-er content continuously left side-e move korbe.
    Duplicate item list use korar karone animation sesh hole
    abar naturally first item-er sathe continue korbe. */
 
@@ -51,7 +51,8 @@ a {
 }
 
 
-/* Mobile-e horizontal overflow prevent korar basic safeguards */
+/* ata Mobile-e horizontal overflow prevent korar basic safe guards */
+
 html,
 body {
   width: 100%;
@@ -73,7 +74,8 @@ body {
   }
 }
 
-/* User reduced motion prefer korle animation komano */
+/*akhane  User reduced motion prefer korle animation komano */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

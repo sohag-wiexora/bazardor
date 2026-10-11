@@ -18,7 +18,7 @@ export default function AuthActions() {
     router.refresh();
   }
 
-  // Session load howar somoy layout jeno jump na kore.
+  //Akhane Session load howar somoy layout jeno jump na kore.
 
   if (isPending) {
     return (
@@ -29,7 +29,7 @@ export default function AuthActions() {
     );
   }
 
-  // Logged-in user-er jonno sign out button.
+  //Ata holo  Logged-in user-er jonno sign out button.
 
   if (session) {
     return (
@@ -49,7 +49,7 @@ export default function AuthActions() {
     );
   }
 
-  // Logged-out user-er jonno sign in ebong sign up links.
+  // Ata holo Logged-out user-er jonno sign in ebong sign up links.
 
   return (
     <div className="flex w-full min-w-0 items-center gap-2 sm:w-auto sm:gap-3">
