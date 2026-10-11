@@ -13,6 +13,13 @@ export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,
 
 
+  trustedOrigins: [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://bazardor-o9va.vercel.app",
+    "https://bazardor-o9va-git-main-programar-md-sohag-chowdhuri.vercel.app",
+  ],
+
   account: {
     accountLinking: {
       enabled: true,
@@ -20,11 +27,9 @@ export const auth = betterAuth({
     },
   },
 
-
   emailAndPassword: {
     enabled: true,
   },
-
 
   socialProviders: {
     google: {

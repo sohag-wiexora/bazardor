@@ -1,21 +1,32 @@
+import { connection } from "next/server";
+import { Suspense } from "react";
 import Navbar from "@/components/layout/Navbar";
 import PriceTicker from "@/components/layout/PriceTicker";
 import Hero from "@/components/home/Hero";
 import ProductCard from "@/components/product/ProductCard";
 import { getProducts } from "@/lib/api";
 import Footer from "@/components/layout/Footer";
+import type { Product } from "@/types/product";
 
-export default async function Home() {
+// API theke product ene homepage-er sections-e dekhabe.
+async function HomeContent() {
+   await connection();
 
-  const products = await getProducts();
+  let products: Product[] = [];
+  try {
+    products = await getProducts();
+  } catch (error) {
+    // API fail korleo error log hobe; homepage crash korbe na.
+    console.error("Homepage product loading failed:", error);
+  }
 
-
+  // Je products-er dam bereche, tader moddhe top 6 ber kori.
   const risers = products
     .filter((product) => product.change.dir === "up")
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
 
-
+  // Je products-er dam komeche, tader moddhe top 6 ber kori.
   const fallers = products
     .filter((product) => product.change.dir === "down")
     .sort((a, b) => b.change.pct - a.change.pct)
@@ -31,7 +42,6 @@ export default async function Home() {
         <Hero />
 
         {/* Section A — Top 6 products whose price increased today */}
-
         <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
           <div className="mb-7">
             <h2 className="text-2xl font-bold sm:text-3xl">
@@ -51,7 +61,6 @@ export default async function Home() {
         </section>
 
         {/* Section B — Top 6 products whose price decreased today */}
-
         <section className="border-y border-[#e8e3d8] bg-[#faf7f0]">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
             <div className="mb-7">
@@ -73,7 +82,6 @@ export default async function Home() {
         </section>
 
         {/* Section C — Every product returned by the API */}
-        
         <section
           id="সব-পণ্য"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
@@ -95,7 +103,22 @@ export default async function Home() {
         </section>
       </main>
 
-<Footer />
+      <Footer />
     </div>
+  );
+}
+
+// Suspense boundary async homepage content-er loading state handle kore.
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#fffdf8] p-8 text-[#171717]">
+          বাজারের পণ্যের তথ্য লোড হচ্ছে...
+        </div>
+      }
+    >
+      <HomeContent />
+    </Suspense>
   );
 }

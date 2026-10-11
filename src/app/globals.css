@@ -79,3 +79,14 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Price ticker-ke dan theke bame continuously move korabe. */
+@keyframes marketTicker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}

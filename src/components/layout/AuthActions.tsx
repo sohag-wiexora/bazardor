@@ -8,7 +8,7 @@ import { authClient } from "@/lib/auth-client";
 export default function AuthActions() {
   const router = useRouter();
 
-  // Browser-er current login session check kori.
+
   const { data: session, isPending } = authClient.useSession();
 
   async function handleSignOut() {
@@ -19,7 +19,7 @@ export default function AuthActions() {
   }
 
   // Session load howar somoy layout jeno jump na kore.
-  
+
   if (isPending) {
     return (
       <div

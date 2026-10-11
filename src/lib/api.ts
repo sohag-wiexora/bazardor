@@ -4,35 +4,35 @@ import type { Product } from "@/types/product";
 
 // const BASE_URL = "https://api.api-store.workers.dev/api/bazardor";
 
-const BASE_URL = "https://api.abcz.workers.dev/api/bazardor";
+const BASE_URL = "https://openapi.programming-hero.com/api/bazardor";
+
+
+
 
 
 export async function getProducts(): Promise<Product[]> {
   const url = `${BASE_URL}/products`;
 
   try {
-    const response = await fetch(url, {
-      cache: "no-store",
-    });
+ const response = await fetch(url, {
+  cache: "no-store",
+});
 
     if (!response.ok) {
-      const errorBody = await response.text();
+      const body = await response.text();
 
-      console.error("Product API failed:", {
-        url,
+      console.error("Product API HTTP error:", {
         status: response.status,
-        body: errorBody,
+        body,
       });
 
-      throw new Error(
-        `Product API failed with status ${response.status}`,
-      );
+      throw new Error(`Product API failed: HTTP ${response.status}`);
     }
 
     const data: Product[] = await response.json();
     return data;
   } catch (error) {
-    console.error("getProducts error:", error);
+    console.error("getProducts failed:", error);
     throw error;
   }
 }

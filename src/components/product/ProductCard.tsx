@@ -5,8 +5,7 @@ type ProductCardProps = {
   product: Product;
 };
 
-// Home ebong Category page-e same card design reuse korar jonno
-// product-ke props hisebe receive korchi.
+
 export default function ProductCard({ product }: ProductCardProps) {
   const isUp = product.change.dir === "up";
   const isDown = product.change.dir === "down";
@@ -24,6 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     >
       {/* Product-er visual area.
           API-te image currently emoji hisebe ashe, tai img tag use korchi na. */}
+
       <div className="flex h-32 items-center justify-center rounded-lg bg-[#f7f3ea]">
         <span
           className="text-6xl transition-transform duration-200 group-hover:scale-110"
@@ -34,6 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Product information */}
+
       <div className="mt-4">
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -57,6 +58,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Current price */}
+        
         <div className="mt-4 flex items-end justify-between gap-3">
           <div>
             <p className="text-xs text-[#77736c]">আজকের দাম</p>
